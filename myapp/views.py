@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    conversion_type = request.Get.get("convert")
+    conversion_type = request.GET.get("convert")
     result = None
 
     if request.method == "POST":
