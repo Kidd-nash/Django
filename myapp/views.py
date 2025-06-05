@@ -10,7 +10,7 @@ def home(request):
         try:
             kilogram = float(request.POST.get("kilogram"))
 
-            pounds = f"{kilogram}kg is equal to {kilogram * 2.20462}lb/s converted."
+            pounds = f"{kilogram}kg is equal to {kilogram * 2.20462:.2f}lb/s converted."
         except (ValueError, TypeError):
             pounds = "You have given an invalid value."
 
