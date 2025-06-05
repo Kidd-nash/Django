@@ -4,14 +4,15 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    pounds = None
+    conversion_type = request.Get.get("convert")
+    result = None
 
     if request.method == "POST":
         try:
-            kilogram = float(request.POST.get("kilogram"))
-
-            pounds = f"{kilogram}kg is equal to {kilogram * 2.20462:.2f}lb/s converted."
+            weight = float(request.POST.get("weight"))
+            if conversion_type == "kg":
+            elif conversion_type == "lb":
         except (ValueError, TypeError):
             pounds = "You have given an invalid value."
 
-    return render(request, 'index.html', {'result': pounds})
+    return render(request, 'index.html', {'result': result})
