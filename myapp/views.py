@@ -11,8 +11,13 @@ def home(request):
         try:
             weight = float(request.POST.get("weight"))
             if conversion_type == "kg":
+                result = f"{weight} kg is equal to {round(weight * 2.20462, 2)} lb/s converted"
             elif conversion_type == "lb":
+                result = f"{weight} lb/s is equal to {round(weight / 2.20462, 2)} kg converted"
         except (ValueError, TypeError):
             pounds = "You have given an invalid value."
 
-    return render(request, 'index.html', {'result': result})
+    return render(request, "index.html", {
+        "conversion_type": conversion_type,
+        "result": result
+    })
