@@ -8,3 +8,23 @@ db.sqlite3
 venv/
 .idea/
 .DS_Store
+
+# Python
+*.pyc
+__pycache__/
+
+# Django
+db.sqlite3
+.env
+*.log
+/static/
+/media/
+
+# Environment
+venv/
+.env
+
+# Editor
+.idea/
+.vscode/
+.DS_Store
