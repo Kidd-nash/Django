@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Home
-        </title>
-    </head>
-    <body>
+
+<head>
+    <title>
+        Home
+    </title>
+</head>
+
+<body>
+    <div>
+        <h2>Weight Unit Conversion</h2>
         <div>
-            <h2>Weight Unit Conversion</h2>
+            <a href="?convert=kg">Convert kg to lb/s</a>
+            <a href="?convert=lb">Convert lb/s to kg</a>
+        </div>
+        {% if conversion_type == "kg" %}
             <form method="POST">
                 {% csrf_token %}
-                <input type="number" step="any" placeholder="Enter Weight in kg" name="kilogram" required />
+                <label>Enter a weight in kg:</label>
+                <input type="number" step="any" name="weight" required />
                 <button type="submit">Convert</button>
             </form>
-            {% if result %}
-                <div>
-                    <span>
-                        {{ result }}
-                    </span>
-                </div>
-            {% endif %}
-        </div>
-    </body>
+        {% elif conversion_type == "lb" %}
+            <form method="POST">
+                {% csrf_token %}
+                <label>Enter a weight in lb:</label>
+                <input type="number" step="any" name="weight" required />
+                <button type="submit">Convert</button>
+            </form>
+        {% else %}
+            <span>
+                Please choose one from the conversions
+            </span>
+        {% endif %}
+        {% if result %}
+            <div>
+                <span>
+                    {{ result }}
+                </span>
+            </div>
+        {% endif %}
+    </div>
+</body>
+
 </html>
