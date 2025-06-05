@@ -9,7 +9,8 @@
         <div>
             <h2>Weight Unit Conversion</h2>
             <form method="POST">
-                <input type="number" />
+                {% csrf_token %}
+                <input type="number" step="any" placeholder="Enter Weight in kg" name="kilogram" required />
                 <button type="submit">Convert</button>
             </form>
             {% if result %}
